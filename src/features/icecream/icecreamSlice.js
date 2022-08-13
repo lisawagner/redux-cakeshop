@@ -16,11 +16,12 @@ const icecreamSlice = createSlice({
       state.numOfIcecreams += action.payload
     }
   },
-  extraReducers: builder => {
-    builder.addCase(cakeOrdered, state => {
-      state.numOfIcecreams--
-    })
-  }
+  // For each cake sold, an ice cream is given away too
+  // extraReducers: builder => {
+  //   builder.addCase(cakeOrdered, state => {
+  //     state.numOfIcecreams--
+  //   })
+  // }
 })
 
 export default icecreamSlice.reducer
