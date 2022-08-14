@@ -8,9 +8,11 @@ export const CakeView = () => {
 
   return (
     <>
-      <h2>Number of Cakes: {numberOfCakes}</h2>
-      <button onClick={() => dispatch(ordered())}>Sell Cake</button>
-      <button onClick={() => dispatch(restocked(5))}>Restock Cake</button>
+        <h2>Cakes QTY: {numberOfCakes}</h2>
+        <div className='cake-btns-wrap'>
+          <button onClick={() => dispatch(ordered())}>Sell Cake</button>
+          <button onClick={() => dispatch(restocked(5))}>Restock Cake</button>  
+        </div>    
     </>
   )
 }

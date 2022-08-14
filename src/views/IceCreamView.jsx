@@ -9,14 +9,17 @@ export const IceCreamView = () => {
 
   return (
     <>
-      <h2>Quantity of Ice Cream: {amountOfIceCream}</h2>
+      <h2>Ice Cream QTY: {amountOfIceCream}</h2>
       <button onClick={() => dispatch(ordered())}>Sell Ice Cream</button>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => setValue(parseInt(e.target.value))}
-      />
-      <button onClick={() => dispatch(restocked(value))}>Restock Ice Cream</button>
+      <div className='icecream-qty-wrap'>
+        <span>Qty to Restock:</span>
+        <input
+          type="number"
+          value={value}
+          onChange={(e) => setValue(parseInt(e.target.value))}
+        />
+        <button onClick={() => dispatch(restocked(value))}>Restock Ice Cream</button>
+      </div>
     </>
   )
 }
