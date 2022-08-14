@@ -1,14 +1,14 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchUsers } from '../features/user/userSlice'
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUsers } from "../features/user/userSlice";
 
 export const UserView = () => {
-  const user = useSelector((state) => state.user)
-  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchUsers())
-  }, [])
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   return (
     <>
@@ -17,13 +17,11 @@ export const UserView = () => {
       {!user.loading && user.error ? <div>Error: {user.error}</div> : null}
       {!user.loading && user.users.length ? (
         <ol>
-          {
-            user.users.map(user => (
-              <li key={user.id}>{user.name}</li>
-            ))
-          }
+          {user.users.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
         </ol>
       ) : null}
     </>
-  )
-}
+  );
+};
